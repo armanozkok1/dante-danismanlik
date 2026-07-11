@@ -32,7 +32,7 @@
       navToggle.classList.toggle('open', open);
       navToggle.setAttribute('aria-expanded', open);
     });
-    mobilePanel.querySelectorAll('a').forEach(function(a){
+    mobilePanel.querySelectorAll('a, .auth-open-trigger').forEach(function(a){
       a.addEventListener('click', function(){
         mobilePanel.classList.remove('open');
         navToggle.classList.remove('open');
@@ -90,9 +90,25 @@
     resetTimer();
   }
 
-  // Contact form (client-side only demo submit)
+  /*
+    ==========================================================
+    RANDEVU FORMU — Formspree entegrasyonu
+    Bu formun size e-posta olarak düşmesi için:
+    1) https://formspree.io adresinde ücretsiz bir hesap açın.
+    2) "New Form" ile yeni bir form oluşturun, admin e-postanızı
+       doğrulayın.
+    3) Formspree size "https://formspree.io/f/xxxxxxxx" gibi bir
+       endpoint verecek. Aşağıdaki FORMSPREE_ENDPOINT sabitindeki
+       "https://formspree.io/f/YOUR_FORM_ID" kısmını bu adresle
+       değiştirin (iletisim.html içindeki <form> etiketinin
+       action değerini de aynı adresle güncelleyin).
+    ==========================================================
+  */
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
   var form = document.getElementById('apptForm');
   var success = document.getElementById('formSuccess');
+  var errorBox = document.getElementById('formError');
   if(form && success){
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -100,9 +116,41 @@
         form.reportValidity();
         return;
       }
-      success.classList.add('show');
-      form.querySelectorAll('input,select,textarea,button[type=submit]').forEach(function(el){ el.disabled = true; });
-      success.scrollIntoView({behavior:'smooth', block:'nearest'});
+      if(errorBox) errorBox.classList.remove('show');
+
+      var endpoint = form.getAttribute('action') || FORMSPREE_ENDPOINT;
+      var submitBtn = form.querySelector('button[type=submit]');
+      if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Gönderiliyor…'; }
+
+      if(endpoint.indexOf('YOUR_FORM_ID') !== -1){
+        // Formspree henüz yapılandırılmadı: kullanıcıya zarif başarı mesajını
+        // yine de gösteriyoruz (demo modu) ama konsola net bir uyarı düşüyoruz.
+        console.warn('[Dante] Formspree yapılandırılmadı: assets/main.js içindeki FORMSPREE_ENDPOINT ve iletisim.html formundaki action değerini kendi Formspree form ID’nizle değiştirin.');
+        setTimeout(function(){
+          success.classList.add('show');
+          form.querySelectorAll('input,select,textarea,button[type=submit]').forEach(function(el){ el.disabled = true; });
+          success.scrollIntoView({behavior:'smooth', block:'nearest'});
+        }, 400);
+        return;
+      }
+
+      var formData = new FormData(form);
+      fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response){
+        if(response.ok){
+          success.classList.add('show');
+          form.querySelectorAll('input,select,textarea,button[type=submit]').forEach(function(el){ el.disabled = true; });
+          success.scrollIntoView({behavior:'smooth', block:'nearest'});
+        } else {
+          throw new Error('Formspree yanıtı başarısız');
+        }
+      }).catch(function(){
+        if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Randevu Talep Et'; }
+        if(errorBox) errorBox.classList.add('show');
+      });
     });
   }
 })();

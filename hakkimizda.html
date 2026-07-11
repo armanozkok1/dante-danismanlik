@@ -7,7 +7,7 @@
 <meta name="description" content="Dante Eğitim Danışmanlığı; İtalya ve Almanya üniversite kabul danışmanlığı ile Almanca, İtalyanca, İngilizce, Matematik özel derslerini bir arada sunar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -15,7 +15,11 @@
 <header id="site-header" class="solid">
   <div class="wrap header-inner">
     <a href="index.html" class="logo">
-      <span class="mark">D</span>
+      <svg class="dante-mark" width="46" height="46" viewBox="0 0 100 100" role="img" aria-label="Dante amblemi">
+        <defs><clipPath id="clipHDR"><circle cx="50" cy="50" r="36"/></clipPath></defs>
+        <image class="seal-portrait" href="assets/img/dante-seal-400.jpg" x="6" y="6" width="88" height="88" clip-path="url(#clipHDR)" preserveAspectRatio="xMidYMid slice"></image>
+        <circle class="seal-ring" cx="50" cy="50" r="45" stroke-width="4" stroke-dasharray="212.06 70.69" transform="rotate(135 50 50)"></circle>
+      </svg>
       <span>Dante
         <small>İtalya · Almanya Danışmanlığı</small>
       </span>
@@ -28,8 +32,14 @@
       <a href="basarilar.html">Başarılarımız</a>
       <a href="iletisim.html">İletişim</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:14px;">
+    <div class="header-actions">
       <a href="iletisim.html" class="btn btn-gold" id="cta-desktop">Ücretsiz Danışmanlık Al</a>
+      <button type="button" class="btn btn-outline-light btn-ghost-small auth-open-trigger">Giriş Yap / Kayıt Ol</button>
+      <div class="user-chip" style="display:none">
+        <span class="avatar">?</span>
+        <span class="user-name-label"></span>
+        <button type="button" class="logout-trigger">Çıkış</button>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false">
         <span></span>
       </button>
@@ -44,7 +54,52 @@
   <a href="hakkimizda.html" class="active">Hakkımızda</a>
   <a href="basarilar.html">Başarılarımız</a>
   <a href="iletisim.html">İletişim</a>
+  <hr>
+  <button type="button" class="btn btn-outline-light auth-open-trigger">Giriş Yap / Kayıt Ol</button>
+  <div class="user-chip" style="display:none">
+    <span class="avatar">?</span>
+    <span class="user-name-label"></span>
+    <button type="button" class="logout-trigger">Çıkış</button>
+  </div>
   <a href="iletisim.html" class="btn btn-gold" style="margin-top:10px;">Ücretsiz Danışmanlık Al</a>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <button type="button" class="modal-close" id="authCloseBtn" aria-label="Kapat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="eyebrow on-light" style="justify-content:center;">Dante Hesabım</div>
+    <h3>Hoş Geldiniz</h3>
+    <p class="modal-sub">Randevu talebinizi hızlıca oluşturmak için giriş yapın veya hesap açın.</p>
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-tab="login">Giriş Yap</button>
+      <button type="button" class="auth-tab" data-tab="register">Kayıt Ol</button>
+    </div>
+    <div class="auth-msg" id="authMsg"></div>
+    <form class="auth-form active" id="loginForm" data-form="login">
+      <div class="field"><label for="li-email">E-posta</label><input type="email" id="li-email" placeholder="ornek@eposta.com" required></div>
+      <div class="field"><label for="li-pass">Şifre</label><input type="password" id="li-pass" placeholder="••••••••" required></div>
+      <button type="submit" class="btn btn-crimson btn-block">Giriş Yap</button>
+      <div class="auth-divider">veya</div>
+      <button type="button" class="btn-google" id="googleLoginBtn">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l6-6C34.9 5.1 29.8 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l6-6C34.9 5.1 29.8 3 24 3 16.3 3 9.7 7.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 45c5.7 0 10.8-2.2 14.6-5.7l-6.7-5.5C29.8 35.5 27 36.5 24 36.5c-5.2 0-9.6-3.3-11.2-7.9l-6.6 5.1C9.6 40.5 16.3 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.2-4.1 5.6l6.7 5.5C41.9 36.9 45 31.1 45 24c0-1.4-.1-2.7-.4-3.5z"/></svg>
+        Google ile Devam Et
+      </button>
+    </form>
+    <form class="auth-form" id="registerForm" data-form="register">
+      <div class="field"><label for="re-name">Ad Soyad</label><input type="text" id="re-name" placeholder="Adınız Soyadınız" required></div>
+      <div class="field"><label for="re-email">E-posta</label><input type="email" id="re-email" placeholder="ornek@eposta.com" required></div>
+      <div class="field"><label for="re-pass">Şifre</label><input type="password" id="re-pass" placeholder="En az 6 karakter" minlength="6" required></div>
+      <button type="submit" class="btn btn-crimson btn-block">Hesap Oluştur</button>
+      <div class="auth-divider">veya</div>
+      <button type="button" class="btn-google" id="googleRegisterBtn">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l6-6C34.9 5.1 29.8 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.4-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l6-6C34.9 5.1 29.8 3 24 3 16.3 3 9.7 7.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 45c5.7 0 10.8-2.2 14.6-5.7l-6.7-5.5C29.8 35.5 27 36.5 24 36.5c-5.2 0-9.6-3.3-11.2-7.9l-6.6 5.1C9.6 40.5 16.3 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.2-4.1 5.6l6.7 5.5C41.9 36.9 45 31.1 45 24c0-1.4-.1-2.7-.4-3.5z"/></svg>
+        Google ile Devam Et
+      </button>
+    </form>
+  </div>
 </div>
 
 <main>
@@ -63,7 +118,7 @@
     <div class="wrap about-grid">
       <div class="about-copy reveal">
         <div class="eyebrow">Vizyonumuz</div>
-        <h2 style="margin-top:18px;color:var(--on-navy);font-size:clamp(28px,3.4vw,42px);">Dil ve danışmanlığı bir arada sunan tek adres</h2>
+        <h2 style="margin-top:18px;color:var(--on-deep);font-size:clamp(28px,3.4vw,42px);">Dil ve danışmanlığı bir arada sunan tek adres</h2>
         <p class="body-lg">Çoğu danışmanlık firması yalnızca başvuru sürecine odaklanır, dil eğitimini ise öğrenciyi başka bir kuruma yönlendirerek çözer. Dante'de bu ikisini aynı çatı altında topluyoruz: danışmanlarımız İtalya ve Almanya'nın üniversite sistemlerini, eğitmenlerimiz ise Almanca, İtalyanca, İngilizce ve Matematiği aynı hedefe, yani kabul mektubuna odaklanarak öğretir.</p>
         <p class="body-lg">15 yılı aşkın tecrübemizle, öğrencinin akademik geçmişini, dil seviyesini ve hedeflerini tek bir stratejide birleştiriyor; başvurudan kabule, kabulden vizeye kadar tek bir ekiple ilerliyoruz.</p>
         <div class="stat-row">
@@ -84,12 +139,12 @@
       <div class="about-art reveal">
         <span class="frame-corner tl"></span>
         <span class="frame-corner br"></span>
-        <svg class="compass" viewBox="0 0 200 200" fill="none" stroke="#D8C08C" stroke-width="1">
-          <circle cx="100" cy="100" r="82" stroke-opacity="0.5"/>
-          <circle cx="100" cy="100" r="58" stroke-opacity="0.7"/>
-          <circle cx="100" cy="100" r="2.5" fill="#D8C08C" stroke="none"/>
-          <path d="M100 18 L100 40 M100 160 L100 182 M18 100 L40 100 M160 100 L182 100" stroke-opacity="0.6"/>
-          <path d="M100 42 L112 100 L100 158 L88 100 Z" stroke-opacity="0.85"/>
+        <svg class="dante-mark seal-large" viewBox="0 0 320 320" role="img" aria-label="Dante Eğitim Danışmanlığı arması">
+          <defs><clipPath id="clipBIG"><circle cx="160" cy="160" r="112"/></clipPath></defs>
+          <image class="seal-portrait" href="assets/img/dante-seal-400.jpg" x="20" y="20" width="280" height="280" clip-path="url(#clipBIG)" preserveAspectRatio="xMidYMid slice"></image>
+          <circle class="seal-ring" cx="160" cy="160" r="138" stroke-width="6" stroke-dasharray="650.31 216.77" transform="rotate(135 160 160)"></circle>
+          <text x="160" y="281" text-anchor="middle" font-family="Cinzel, serif" font-weight="700" font-size="25" letter-spacing="4" fill="#DCC07F">DANTE</text>
+          <text x="160" y="300" text-anchor="middle" font-family="Cinzel, serif" font-weight="500" font-size="12.5" letter-spacing="2.5" fill="#B8923F">DANIŞMANLIK</text>
         </svg>
       </div>
     </div>
@@ -151,7 +206,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo">
-          <span class="mark">D</span>
+          <svg class="dante-mark" width="46" height="46" viewBox="0 0 100 100" role="img" aria-label="Dante amblemi">
+            <defs><clipPath id="clipFTR"><circle cx="50" cy="50" r="36"/></clipPath></defs>
+            <image class="seal-portrait" href="assets/img/dante-seal-400.jpg" x="6" y="6" width="88" height="88" clip-path="url(#clipFTR)" preserveAspectRatio="xMidYMid slice"></image>
+            <circle class="seal-ring" cx="50" cy="50" r="45" stroke-width="4" stroke-dasharray="212.06 70.69" transform="rotate(135 50 50)"></circle>
+          </svg>
           <span>Dante<small>İtalya · Almanya Danışmanlığı</small></span>
         </a>
         <p>İtalya ve Almanya'daki üniversitelere kabul danışmanlığı; Almanca, İtalyanca, İngilizce ve Matematik özel dersleriyle öğrencilerin yanında.</p>
@@ -196,5 +255,6 @@
 </footer>
 
 <script src="assets/main.js"></script>
+<script type="module" src="assets/auth.js"></script>
 </body>
 </html>
