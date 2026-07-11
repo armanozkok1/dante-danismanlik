@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Başarı Hikayeleri — Dante Eğitim Danışmanlığı</title>
+<meta name="description" content="İtalya ve Almanya'daki üniversitelere yerleşen öğrencilerimizin başarı hikayeleri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header id="site-header" class="solid">
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo">
+      <span class="mark">D</span>
+      <span>Dante
+        <small>İtalya · Almanya Danışmanlığı</small>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Anasayfa</a>
+      <a href="danismanlik.html">Danışmanlık</a>
+      <a href="ozel-ders.html">Özel Ders</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="basarilar.html" class="active">Başarılarımız</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a href="iletisim.html" class="btn btn-gold" id="cta-desktop">Ücretsiz Danışmanlık Al</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <a href="index.html">Anasayfa</a>
+  <a href="danismanlik.html">Danışmanlık</a>
+  <a href="ozel-ders.html">Özel Ders</a>
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="basarilar.html" class="active">Başarılarımız</a>
+  <a href="iletisim.html">İletişim</a>
+  <a href="iletisim.html" class="btn btn-gold" style="margin-top:10px;">Ücretsiz Danışmanlık Al</a>
+</div>
+
+<main>
+
+  <div class="page-header">
+    <div class="colonnade"></div>
+    <div class="wrap inner">
+      <div class="crumb"><a href="index.html">Anasayfa</a><span>/</span><span>Başarılarımız</span></div>
+      <div class="eyebrow"><span class="numeral">Canto IV</span> Başarı Hikayeleri</div>
+      <h1>İtalya ve Almanya'da Okuyan Öğrencilerimiz</h1>
+      <p class="lede">Danışmanlık ve özel ders desteğimizle hedeflerine ulaşan öğrencilerimizin hikayeleri.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED SLIDER -->
+  <section class="testimonials">
+    <div class="wrap">
+      <div class="testi-wrap reveal">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-slide active">
+            <span class="quote-mark">"</span>
+            <blockquote>Dante olmasaydı Bocconi'deki başvurumu bu kadar net bir hikayeye dönüştüremezdim. Danışmanım hem başvuru hem de İtalyanca hazırlığımda her adımda yanımdaydı.</blockquote>
+            <div class="testi-meta">
+              <span class="initials">EA</span>
+              <div>
+                <div class="name">Ela Aydın</div>
+                <div class="school">Bocconi University, Milano</div>
+                <div class="country">İtalya</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <span class="quote-mark">"</span>
+            <blockquote>IELTS hazırlığından başvuru sürecine kadar her şey o kadar organizeydi ki, TU München'e kabul almaktan başka bir şey düşünmedim.</blockquote>
+            <div class="testi-meta">
+              <span class="initials">BK</span>
+              <div>
+                <div class="name">Berk Kaya</div>
+                <div class="school">Technical University of Munich</div>
+                <div class="country">Almanya</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <span class="quote-mark">"</span>
+            <blockquote>Almanca derslerine sıfırdan başladım, bir yıl sonra Heidelberg'de kabul mektubumu elime aldım. Dante'nin dil ve danışmanlığı bir arada sunması büyük fark yarattı.</blockquote>
+            <div class="testi-meta">
+              <span class="initials">SD</span>
+              <div>
+                <div class="name">Selin Demir</div>
+                <div class="school">Heidelberg University</div>
+                <div class="country">Almanya</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-controls">
+          <div class="testi-dots" id="testiDots"></div>
+          <div class="testi-arrows">
+            <button class="arrow-btn" id="testiPrev" aria-label="Önceki">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button class="arrow-btn" id="testiNext" aria-label="Sonraki">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE STORIES GRID -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow on-light">Daha Fazla</div>
+        <h2>Diğer öğrencilerimizden notlar</h2>
+      </div>
+      <div class="testi-grid reveal">
+        <article class="testi-card">
+          <span class="quote-mark">"</span>
+          <blockquote>Matematik derslerim olmasaydı Politecnico di Milano'nun giriş sınavını bu kadar rahat geçemezdim.</blockquote>
+          <div class="testi-meta">
+            <span class="initials">CY</span>
+            <div>
+              <div class="name">Cem Yıldız</div>
+              <div class="school">Politecnico di Milano</div>
+              <div class="country">İtalya</div>
+            </div>
+          </div>
+        </article>
+        <article class="testi-card">
+          <span class="quote-mark">"</span>
+          <blockquote>Danışmanlık paketi gerçekten söylendiği gibi uçtan uca; vize sürecinde bile yalnız kalmadım.</blockquote>
+          <div class="testi-meta">
+            <span class="initials">ZK</span>
+            <div>
+              <div class="name">Zeynep Kurt</div>
+              <div class="school">RWTH Aachen University</div>
+              <div class="country">Almanya</div>
+            </div>
+          </div>
+        </article>
+        <article class="testi-card">
+          <span class="quote-mark">"</span>
+          <blockquote>İngilizce derslerimle IELTS hedef puanımı iki ayda yakaladım, başvuru takvimini kaçırmadım.</blockquote>
+          <div class="testi-meta">
+            <span class="initials">AT</span>
+            <div>
+              <div class="name">Ahmet Taş</div>
+              <div class="school">LUISS Guido Carli, Roma</div>
+              <div class="country">İtalya</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="wrap cta-banner-inner">
+      <div>
+        <h2>Sıradaki başarı hikayesi sizin olsun</h2>
+        <p>Ücretsiz ön görüşmede yolculuğunuza birlikte başlayalım.</p>
+      </div>
+      <a href="iletisim.html" class="btn btn-gold">Ücretsiz Ön Görüşme Planlayın</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="mark">D</span>
+          <span>Dante<small>İtalya · Almanya Danışmanlığı</small></span>
+        </a>
+        <p>İtalya ve Almanya'daki üniversitelere kabul danışmanlığı; Almanca, İtalyanca, İngilizce ve Matematik özel dersleriyle öğrencilerin yanında.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="10" x2="7" y2="17"/><circle cx="7" cy="7" r="0.6" fill="currentColor"/><path d="M11 17v-4.5c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5V17"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 10l4 2-4 2v-4Z" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="basarilar.html">Başarılarımız</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="danismanlik.html">Danışmanlık (İtalya &amp; Almanya)</a></li>
+          <li><a href="ozel-ders.html">Özel Ders</a></li>
+          <li><a href="ozel-ders.html#almanca">Almanca Dersleri</a></li>
+          <li><a href="ozel-ders.html#italyanca">İtalyanca Dersleri</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+902125550101">+90 212 555 01 01</a></li>
+          <li><a href="mailto:info@dantedanismanlik.com">info@dantedanismanlik.com</a></li>
+          <li><a href="#">Levent, İstanbul</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dante Eğitim Danışmanlığı. Tüm hakları saklıdır.</span>
+      <span>Gizlilik Politikası · Kullanım Şartları</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
