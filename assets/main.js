@@ -41,6 +41,30 @@
     });
   }
 
+  // Campus photo carousel (About section art panel) — advances every 3s
+  var campusSlides = Array.prototype.slice.call(document.querySelectorAll('.campus-slide'));
+  var campusCaption = document.getElementById('campusCaption');
+  if(campusSlides.length > 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var campusIdx = 0;
+    setInterval(function(){
+      campusSlides[campusIdx].classList.remove('active');
+      campusIdx = (campusIdx + 1) % campusSlides.length;
+      campusSlides[campusIdx].classList.add('active');
+      if(campusCaption) campusCaption.textContent = campusSlides[campusIdx].dataset.label || '';
+    }, 3000);
+  }
+
+  // Hero background rotator (rotating, low-opacity Renaissance paintings) — advances every 6s
+  var heroArtSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-art-slide'));
+  if(heroArtSlides.length > 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var heroArtIdx = 0;
+    setInterval(function(){
+      heroArtSlides[heroArtIdx].classList.remove('active');
+      heroArtIdx = (heroArtIdx + 1) % heroArtSlides.length;
+      heroArtSlides[heroArtIdx].classList.add('active');
+    }, 6000);
+  }
+
   // Reveal on scroll
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){

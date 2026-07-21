@@ -541,9 +541,52 @@ section{padding:120px 0;}
   overflow:hidden;
 }
 .about-art .seal-large{width:64%;}
-.about-art .frame-corner{position:absolute;width:24px;height:24px;border:1px solid var(--gold);}
+.about-art .frame-corner{position:absolute;width:24px;height:24px;border:1px solid var(--gold);z-index:3;}
 .about-art .frame-corner.tl{top:12px;left:12px;border-right:none;border-bottom:none;border-radius:6px 0 0 0;}
 .about-art .frame-corner.br{bottom:12px;right:12px;border-left:none;border-top:none;border-radius:0 0 6px 0;}
+
+/* ---- Campus photo carousel (replaces the compass art) ---- */
+.campus-carousel{position:absolute;inset:0;}
+.campus-slide{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.1s ease;
+}
+.campus-slide.active{opacity:1;}
+.campus-tint{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(160deg, rgba(155,17,30,0.5), rgba(36,26,18,0.4));
+  mix-blend-mode:multiply;
+}
+.campus-tint::after{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg, rgba(184,146,63,0.05) 0 2px, transparent 2px 14px);
+}
+.campus-caption{
+  position:absolute;left:16px;bottom:16px;z-index:2;
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--on-deep);
+  background:rgba(10,7,4,0.5);
+  border:1px solid rgba(184,146,63,0.4);
+  padding:8px 14px;border-radius:999px;
+  backdrop-filter:blur(2px);
+}
+
+/* ---- Hero background: rotating Renaissance paintings, holographic ---- */
+.hero-art-rotator{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.hero-art-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;
+  filter:sepia(0.4) hue-rotate(-12deg) saturate(1.3) brightness(0.85) contrast(1.05);
+  mix-blend-mode:luminosity;
+  transition:opacity 3s ease;
+}
+.hero-art-slide.active{opacity:0.32;}
+.hero-art-rotator::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 900px 600px at 50% 30%, transparent, var(--deep-light) 92%);
+  opacity:0.85;
+}
 
 /* ================= Testimonials ================= */
 .testimonials{background:var(--parchment-dark);}

@@ -106,6 +106,12 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-art-rotator" id="heroArtRotator">
+      <div class="hero-art-slide active" style="background-image:url('assets/img/renaissance/school-of-athens.jpg');"></div>
+      <div class="hero-art-slide" style="background-image:url('assets/img/renaissance/vitruvian-man.jpg');"></div>
+      <div class="hero-art-slide" style="background-image:url('assets/img/renaissance/mona-lisa.jpg');"></div>
+      <div class="hero-art-slide" style="background-image:url('assets/img/renaissance/ideal-city.jpg');"></div>
+    </div>
     <div class="colonnade"></div>
     <div class="stars"></div>
     <div class="arch-frame"></div>
@@ -196,7 +202,7 @@
         <p class="body-lg">Dante Eğitim Danışmanlığı'nda süreç, standart bir şablon değil; öğrencinin akademik geçmişi, dil seviyesi ve hedefleri etrafında inşa edilen kişisel bir stratejidir. Sekiz farklı ülkenin üniversite sistemlerini yakından tanıyan danışmanlarımızla, başvurudan kabule, kabulden yerleşime kadar tek adrestesiniz.</p>
         <div class="stat-row">
           <div class="stat">
-            <div class="num">1200+</div>
+            <div class="num">300+</div>
             <div class="label">Yerleştirilen Öğrenci</div>
           </div>
           <div class="stat">
@@ -204,7 +210,7 @@
             <div class="label">Hedef Üniversiteye Kabul Oranı</div>
           </div>
           <div class="stat">
-            <div class="num">15+</div>
+            <div class="num">2+</div>
             <div class="label">Yıllık Danışmanlık Tecrübesi</div>
           </div>
         </div>
@@ -213,13 +219,17 @@
       <div class="about-art reveal">
         <span class="frame-corner tl"></span>
         <span class="frame-corner br"></span>
-        <svg class="compass" viewBox="0 0 200 200" fill="none" stroke="#D8C08C" stroke-width="1">
-          <circle cx="100" cy="100" r="82" stroke-opacity="0.5"/>
-          <circle cx="100" cy="100" r="58" stroke-opacity="0.7"/>
-          <circle cx="100" cy="100" r="2.5" fill="#D8C08C" stroke="none"/>
-          <path d="M100 18 L100 40 M100 160 L100 182 M18 100 L40 100 M160 100 L182 100" stroke-opacity="0.6"/>
-          <path d="M100 42 L112 100 L100 158 L88 100 Z" stroke-opacity="0.85"/>
-        </svg>
+        <div class="campus-carousel" id="campusCarousel">
+          <img class="campus-slide active" src="assets/img/campus/bologna.jpg" data-label="Bologna Üniversitesi — İtalya" alt="Bologna Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/heidelberg.jpg" data-label="Heidelberg Üniversitesi — Almanya" alt="Heidelberg Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/sorbonne.jpg" data-label="Sorbonne Üniversitesi — Fransa" alt="Sorbonne Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/oxford.jpg" data-label="Oxford Üniversitesi — İngiltere" alt="Oxford Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/salamanca.jpg" data-label="Salamanca Üniversitesi — İspanya" alt="Salamanca Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/coimbra.jpg" data-label="Coimbra Üniversitesi — Portekiz" alt="Coimbra Üniversitesi">
+          <img class="campus-slide" src="assets/img/campus/krakow.jpg" data-label="Jagiellonian Üniversitesi — Polonya" alt="Jagiellonian Üniversitesi">
+          <div class="campus-tint"></div>
+          <div class="campus-caption" id="campusCaption">Bologna Üniversitesi — İtalya</div>
+        </div>
       </div>
     </div>
   </section>
