@@ -128,7 +128,7 @@
        action değerini de aynı adresle güncelleyin).
     ==========================================================
   */
-  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xoeajalr';
 
   var form = document.getElementById('apptForm');
   var success = document.getElementById('formSuccess');
