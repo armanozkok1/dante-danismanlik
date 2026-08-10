@@ -4,23 +4,17 @@
   var ctaDesktop = document.getElementById('cta-desktop');
   var isTransparentHeader = header && header.classList.contains('transparent-start');
   function onScroll(){
-    if(!header) return;
-    if(!isTransparentHeader) return;
+    if(!header || !isTransparentHeader) return;
     if(window.scrollY > 40){
       header.classList.add('scrolled');
-      if(ctaDesktop) ctaDesktop.style.display = 'inline-flex';
     } else {
       header.classList.remove('scrolled');
-      if(ctaDesktop) ctaDesktop.style.display = 'none';
     }
   }
-  if(header){
-    if(isTransparentHeader){
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    } else if(ctaDesktop){
-      ctaDesktop.style.display = 'inline-flex';
-    }
+  if(ctaDesktop) ctaDesktop.style.display = 'inline-flex';
+  if(header && isTransparentHeader){
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
   }
 
   // Mobile nav
