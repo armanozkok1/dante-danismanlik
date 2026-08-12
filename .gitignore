@@ -1,0 +1,12 @@
+# Bağımlılıklar
+/node_modules
+
+# Next.js build çıktıları
+/.next
+/out
+
+# TypeScript
+*.tsbuildinfo
+
+# macOS
+.DS_Store
