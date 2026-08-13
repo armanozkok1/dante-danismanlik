@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HeroArtRotator from "@/components/HeroArtRotator";
 import CampusCarousel from "@/components/CampusCarousel";
+import OrnateFrame from "@/components/OrnateFrame";
 import SealLarge from "@/components/SealLarge";
 import CtaBanner from "@/components/CtaBanner";
 
@@ -174,6 +175,7 @@ export default function HomePage() {
           </div>
           <div className="about-art reveal">
             <CampusCarousel />
+            <OrnateFrame />
           </div>
         </div>
       </section>

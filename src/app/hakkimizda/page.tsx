@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import SealLarge from "@/components/SealLarge";
+import OrnateFrame from "@/components/OrnateFrame";
 import CtaBanner from "@/components/CtaBanner";
 import { CONTACT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Dante Farkı | Dante Eğitim Danışmanlığı",
   description:
-    "Dante Eğitim Danışmanlığı; İtalya'da okuyan/mezun olan Burak ve Arman tarafından kuruldu. Kendi yaşadığımız zorluklardan yola çıkarak öğrencilere uçtan uca destek sunuyoruz.",
+    "Dante Eğitim Danışmanlığı; İtalya'da eğitim sürecini bizzat yaşamış iki kurucu tarafından kuruldu. Kendi yaşadığımız zorluklardan yola çıkarak öğrencilere uçtan uca destek sunuyoruz.",
 };
 
 export default function HakkimizdaPage() {
@@ -86,9 +87,8 @@ export default function HakkimizdaPage() {
             </div>
           </div>
           <div className="about-art reveal">
-            <span className="frame-corner tl"></span>
-            <span className="frame-corner br"></span>
             <SealLarge clipId="clipBIG" />
+            <OrnateFrame />
           </div>
         </div>
       </section>
@@ -104,11 +104,10 @@ export default function HakkimizdaPage() {
               okuyor.
             </p>
           </div>
-          <div className="founder-grid reveal">
+          <div className="founder-grid framed-window reveal">
             <article className="founder-card">
-              <div className="founder-initials">B</div>
-              <h3>Burak</h3>
-              <div className="founder-role">Kurucu Ortak</div>
+              <div className="founder-initials">I</div>
+              <h3>Kurucu Ortak</h3>
               <p>
                 Beş yıldır İtalya&apos;da yaşıyor ve İtalya&apos;da üniversiteden mezun oldu.
                 Dante&apos;den önce de yıllardır danışmanlık veriyor — bu piyasayı en iyi
@@ -116,9 +115,8 @@ export default function HakkimizdaPage() {
               </p>
             </article>
             <article className="founder-card">
-              <div className="founder-initials">A</div>
-              <h3>Arman</h3>
-              <div className="founder-role">Kurucu Ortak</div>
+              <div className="founder-initials">II</div>
+              <h3>Kurucu Ortak</h3>
               <p>
                 Şu anda İtalya&apos;da ikinci sınıf öğrencisi. Bu satırları yazarken bile aynı sınav
                 kaygısını, aynı ders yükünü yaşıyor — öğrencinin yanında olmak ona hiç uzak değil.
@@ -137,7 +135,7 @@ export default function HakkimizdaPage() {
           </div>
         </div>
         <div className="wrap">
-          <div className="card-grid cols-3 reveal">
+          <div className="card-grid cols-3 framed-window reveal">
             <article className="svc-card">
               <span className="svc-numeral">I</span>
               <span className="svc-icon">

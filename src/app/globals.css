@@ -532,7 +532,8 @@ section{padding:120px 0;}
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(160deg, rgba(155,17,30,0.45), rgba(36,26,18,0.2)),
     repeating-linear-gradient(45deg, rgba(184,146,63,0.05) 0 2px, transparent 2px 14px);
-  overflow:hidden;
+  /* overflow:visible — varak çerçevenin süsleri panodan taşabilsin
+     (fotoğrafların kırpılması .campus-carousel'de yapılır) */
 }
 .about-art .seal-large{width:64%;}
 .about-art .frame-corner{position:absolute;width:24px;height:24px;border:1px solid var(--gold);z-index:3;}
@@ -540,7 +541,7 @@ section{padding:120px 0;}
 .about-art .frame-corner.br{bottom:12px;right:12px;border-left:none;border-top:none;border-radius:0 0 6px 0;}
 
 /* ---- Campus photo carousel (replaces the compass art) ---- */
-.campus-carousel{position:absolute;inset:0;}
+.campus-carousel{position:absolute;inset:0;overflow:hidden;border-radius:var(--radius-lg);}
 .campus-slide{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;transition:opacity 1.1s ease;
@@ -824,4 +825,35 @@ footer{background:var(--deep);color:var(--on-deep-soft);padding:70px 0 30px;bord
 @media (max-width:1120px) and (min-width:981px){
   header:not(.transparent-start) nav.main-nav{display:none;}
   header:not(.transparent-start) .nav-toggle{display:flex;}
+}
+
+/* ================= Varak (rokoko) çerçeve süslemeleri ================= */
+/* Not: Bu blok dosyanın SONUNDA durmalı — .founder-grid / .card-grid gibi
+   kuralların border shorthand'i border-image'i sıfırladığından, cascade'de
+   sonra gelerek onları ezmesi gerekiyor. */
+
+/* Fotoğraf panolarının üzerine tam boy bindirilen çerçeve görseli. */
+.ornate-frame{
+  position:absolute;
+  left:-4.5%;top:-4.5%;
+  width:109%;height:109%;
+  max-width:none;
+  pointer-events:none;
+  z-index:4;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,0.3));
+}
+
+/* Metin panolarını (kurucular, ilkeler) saran border-image çerçevesi.
+   url yolu basePath (/dante-danismanlik) içerir — next.config.ts ile aynı. */
+.framed-window{
+  border:26px solid transparent;
+  border-image:url('/dante-danismanlik/assets/img/ornate-frame.png') 30% / 58px / 12px round;
+  background-clip:padding-box;
+}
+@media (max-width:600px){
+  .framed-window{
+    border-width:16px;
+    border-image-width:38px;
+    border-image-outset:7px;
+  }
 }
