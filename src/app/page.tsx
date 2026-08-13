@@ -23,7 +23,6 @@ export default function HomePage() {
         <HeroArtRotator />
         <div className="colonnade"></div>
         <div className="stars"></div>
-        <div className="arch-frame"></div>
         <div className="wrap hero-inner">
           <div className="hero-seal-row reveal">
             <SealLarge clipId="clipBIG" style={{ width: 150, height: 150 }} />

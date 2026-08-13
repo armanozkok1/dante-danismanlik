@@ -94,15 +94,6 @@ export default function SiteChrome() {
             ))}
           </nav>
           <div className="header-actions">
-            {isContact ? (
-              <a href={ctaHref} className="btn btn-gold" id="cta-desktop">
-                Randevu Al
-              </a>
-            ) : (
-              <Link href={ctaHref} className="btn btn-gold" id="cta-desktop">
-                Randevu Al
-              </Link>
-            )}
             {!user && (
               <button
                 type="button"
@@ -113,6 +104,15 @@ export default function SiteChrome() {
               </button>
             )}
             {userChip}
+            {isContact ? (
+              <a href={ctaHref} className="btn btn-gold" id="cta-desktop">
+                Randevu Al
+              </a>
+            ) : (
+              <Link href={ctaHref} className="btn btn-gold" id="cta-desktop">
+                Randevu Al
+              </Link>
+            )}
             <button
               className={`nav-toggle${mobileOpen ? " open" : ""}`}
               aria-label="Menüyü aç"
