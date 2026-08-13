@@ -173,8 +173,6 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="about-art reveal">
-            <span className="frame-corner tl"></span>
-            <span className="frame-corner br"></span>
             <CampusCarousel />
           </div>
         </div>
