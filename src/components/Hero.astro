@@ -3,20 +3,20 @@
 import Header from "./Header.astro";
 ---
 
-<section class="relative w-full h-screen min-h-[600px] bg-[#120E0C] overflow-hidden">
-  <!-- 1. Arka Plan Görseli: Kenardan kenara tam ekran -->
+<section class="relative w-full h-screen h-[100dvh] overflow-hidden bg-[#120E0C]">
+  <!-- Arka Plan Görseli: Tüm ekranı kaplayacak ve dikey kaydırma oluşturmayacak şekilde tam oturur -->
   <img
-    src="/hero-bg-clean.jpg"
+    src="/images/hero/hero-bg-clean.jpg"
     alt="Dante Hero Arka Plan"
-    class="absolute inset-0 w-full h-full object-cover object-center z-0"
+    class="w-full h-full object-cover object-bottom select-none pointer-events-none"
     loading="eager"
   />
 
-  <!-- 2. Şeffaf Header (Ascend tarzı, fotoğrafın tam üstünde) -->
+  <!-- Şeffaf Header (Fotoğrafın üstünde) -->
   <Header />
 
-  <!-- 3. İçerik Katmanı (Gelecek adımlardaki başlık ve butonlar için) -->
-  <div class="relative z-10 w-full h-full flex flex-col justify-between pointer-events-none">
+  <!-- İçerik Katmanı (Gelecek adımlardaki başlık, metin ve butonlar için) -->
+  <div class="absolute inset-0 z-10 flex flex-col justify-between pointer-events-none">
     <slot />
   </div>
 </section>

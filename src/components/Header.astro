@@ -22,19 +22,19 @@ const navItems = [
 ];
 ---
 
-<header class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-10 lg:px-16 py-6 sm:py-8 text-[#f7f1e3] transition-all duration-300">
+<header class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-10 lg:px-16 py-6 sm:py-8 text-[#f7f1e3] bg-gradient-to-b from-black/25 via-black/5 to-transparent transition-all duration-300">
   
   <!-- 1. SOL: Georgia Wordmark Logo -->
-  <a href="/" class="group flex items-baseline gap-1 text-3xl sm:text-4xl font-georgia tracking-[-2px] text-[#f7f1e3] hover:opacity-90 transition-opacity">
+  <a href="/" class="group flex items-baseline gap-1 text-3xl sm:text-4xl font-georgia tracking-[-2px] text-[#f7f1e3] hover:opacity-90 transition-opacity drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
     <span>{logoText}</span>
   </a>
 
   <!-- 2. ORTA: Navigasyon Linkleri (Apfel Grotezk) -->
-  <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-[13px] tracking-[0.05em] text-[#f7f1e3]/85 font-apfel">
+  <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-[13px] font-medium tracking-[0.05em] text-white/95 font-apfel">
     {navItems.map((item) => (
       <a
         href={item.href}
-        class="hover:text-white transition-colors duration-200 relative py-1 group"
+        class="hover:text-white transition-colors duration-200 relative py-1 group drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
       >
         {item.label}
         <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -46,7 +46,7 @@ const navItems = [
   <div class="flex items-center gap-4">
     <a
       href={buttonHref}
-      class="hidden sm:inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-medium tracking-wide bg-white text-[#191412] hover:bg-[#f1eee6] shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-apfel cursor-pointer"
+      class="hidden sm:inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-medium tracking-wide bg-white text-[#191412] hover:bg-[#f1eee6] shadow-sm hover:shadow-md transition-colors duration-200 font-apfel cursor-pointer whitespace-nowrap"
     >
       {buttonText}
     </a>
