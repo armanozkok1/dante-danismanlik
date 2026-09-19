@@ -1,0 +1,98 @@
+---
+// src/components/Header.astro
+// Ascend Studio tarzı: Tamamen şeffaf, fotoğrafın üstünde yüzen (floating) header bileşeni
+
+interface Props {
+  logoText?: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+const {
+  logoText = "dante",
+  buttonText = "İletişime Geç",
+  buttonHref = "#iletisim",
+} = Astro.props;
+
+const navItems = [
+  { label: "Hizmetler", href: "#hizmetler" },
+  { label: "Dante Farkı", href: "#dante-farki" },
+  { label: "Ülkeler", href: "#ulkeler" },
+  { label: "Başarılar", href: "#basarilar" },
+];
+---
+
+<header class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-6 sm:px-10 lg:px-16 py-6 sm:py-8 text-[#f7f1e3] transition-all duration-300">
+  
+  <!-- 1. SOL: Georgia Wordmark Logo -->
+  <a href="/" class="group flex items-baseline gap-1 text-3xl sm:text-4xl font-georgia tracking-[-2px] text-[#f7f1e3] hover:opacity-90 transition-opacity">
+    <span>{logoText}</span>
+  </a>
+
+  <!-- 2. ORTA: Navigasyon Linkleri (Apfel Grotezk) -->
+  <nav class="hidden md:flex items-center gap-8 lg:gap-10 text-[13px] tracking-[0.05em] text-[#f7f1e3]/85 font-apfel">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="hover:text-white transition-colors duration-200 relative py-1 group"
+      >
+        {item.label}
+        <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- 3. SAĞ: Ascend Stili Pill Buton & Mobil Menü -->
+  <div class="flex items-center gap-4">
+    <a
+      href={buttonHref}
+      class="hidden sm:inline-flex items-center justify-center px-6 py-3 rounded-full text-xs font-medium tracking-wide bg-white text-[#191412] hover:bg-[#f1eee6] shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 font-apfel cursor-pointer"
+    >
+      {buttonText}
+    </a>
+
+    <!-- Mobil Hamburger Butonu -->
+    <button
+      id="header-mobile-toggle"
+      type="button"
+      class="md:hidden p-2 rounded-full text-[#f7f1e3] hover:bg-white/10 transition-colors focus:outline-none"
+      aria-label="Menüyü Aç/Kapat"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobil Açılır Menü (Açıldığında şık yarı saydam bir zeminle görünür) -->
+  <div
+    id="header-mobile-menu"
+    class="hidden md:hidden absolute top-full left-0 right-0 px-6 py-6 bg-[#141210]/95 backdrop-blur-md border-b border-white/10 space-y-4 font-apfel text-sm shadow-2xl"
+  >
+    {navItems.map((item) => (
+      <a href={item.href} class="block py-1 text-[#f7f1e3]/90 hover:text-white">
+        {item.label}
+      </a>
+    ))}
+    <div class="pt-2">
+      <a
+        href={buttonHref}
+        class="inline-block px-6 py-2.5 rounded-full text-xs font-medium bg-white text-[#191412] hover:bg-[#f1eee6]"
+      >
+        {buttonText}
+      </a>
+    </div>
+  </div>
+
+</header>
+
+<script>
+  const toggleBtn = document.getElementById("header-mobile-toggle");
+  const mobileMenu = document.getElementById("header-mobile-menu");
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>
